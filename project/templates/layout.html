@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tracker</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('volatility') }}">Implied Volatility</a></li>
+            </ul>
+        </nav>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>Created by Leonardo</p>
+    </footer>
+</body>
+</html>

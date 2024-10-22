@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Stock Option{% endblock %}
+
+{% block main %}
+    <form action="/" method="POST">
+        <label for="ticker">Enter Stock Ticker:</label>
+        <input type="text" id="ticker" name="ticker" placeholder="AAPL, AMZN, etc." required class="input-spacing">
+        
+        <label for="period">Select Period:</label>
+        <select id="period" name="period" required class="input-spacing">
+            <option value="1mo">1 Month</option>
+            <option value="6mo">6 Months</option>
+            <option value="1y">1 Year</option>
+        </select>
+        
+        <button type="submit">Show Graph</button>
+    </form>
+{% endblock %}
