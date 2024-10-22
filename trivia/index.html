@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let buttons = document.querySelectorAll('button[data-answer1]');
+
+                buttons.forEach(button=> {
+                    button.addEventListener('click', function() {
+                        buttons.forEach(button => {
+                            button.classList.remove('correct');
+                            button.classList.remove('incorrect');
+                        });
+
+                        let answer = this.getAttribute('data-answer1');
+
+                        if (answer === 'Rome') {
+                            this.classList.add('correct');
+                            feedback.textContent = 'Correct';
+                        } else {
+                            this.classList.add('incorrect');
+                            feedback.textContent = 'Incorrect';
+                        }
+
+                    });
+                });
+
+                let checkAnswerButton = document.querySelector('button:not([data-answer1])');
+                let answerInput = document.getElementById('answer2');
+                let freeResponseFeedback = document.createElement('p');
+                checkAnswerButton.parentNode.insertBefore(freeResponseFeedback, checkAnswerButton.nextSibling);
+
+                checkAnswerButton.addEventListener('click', function() {
+                    let answer = answerInput.value.trim().toLowerCase();
+
+                    if (answer === 'si') {
+                        freeResponseFeedback.textContent = 'Correct';
+                    } else {
+                        freeResponseFeedback.textContent = 'Incorrect';
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which city is the capital of Italy?</h3>
+                <hr>
+                    <p id="feedback"></p>
+                <button
+                    type="button" data-answer1="Milan"> Milan
+                </button>
+                <button
+                    type="button" data-answer1="Florence"> Florence
+                </button>
+                <button
+                    type="button" data-answer1="Rome"> Rome
+                </button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is the italian translation of the word "Yes"?</h3>
+                <hr>
+                <input id="answer2" autocomplete="off" placeholder="Answer" type="text">
+                <button
+                type="button" > Check answer
+                </button>
+                <hr>
+            </div>
+        </div>
+    </body>
+</html>
