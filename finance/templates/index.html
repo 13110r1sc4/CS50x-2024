@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Portfolio</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- If the user has stocks, display them -->
+            {% for stock in portfolio %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.price }}</td>
+                <td>{{ stock.total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Display user's cash balance -->
+    <h2>Cash: {{ cash }}</h2>
+
+    <!-- Display total value of the portfolio -->
+    <h2>Total Portfolio Value: {{ total_value }}</h2>
+{% endblock %}

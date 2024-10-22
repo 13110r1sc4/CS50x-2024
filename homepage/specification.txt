@@ -1,0 +1,23 @@
+TAGS
+div
+script
+h1
+link
+a
+p
+dfn
+abbr
+h4
+i
+
+PROPERTIES
+background-color
+color
+font-size
+font-weght
+line-height
+margin
+text-align
+
+I used a JavaScript code to show the text "Loading page {x}..." when a hyperlink button is clicked.
+I used the class="navbar" by Bootstrap to create hyperlinks that able the user to move from one page to another whenever he/she wants.
